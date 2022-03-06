@@ -2,21 +2,19 @@
 
 This project was focused on being able to learn about the basics of Javascript and it's applications within Node.js web app development. Navigating the basics is a key part of being able to get better and better with the capabilities of your specific implementation. 
 
-
 [Software Demo Video](http://youtube.link.goes.here)
 
 # Web Pages
 
-{Describe each of the web pages you created and how the web app transitions between each of them.  Also describe what is dynamically created on each page.}
 The main interface of the website is a rudimentary ecommerce page that allows for admin members to add products to the web page and also provides a basic shop place for admin-added products to be seen. The pages apart from the main page are dynamincally created and use Express.js to display the pages. 
 
 # Development Environment
 
-VS Code on Mac
-Node.js 16.9.0
-Nodemon
-Express.js
-npm 
+* VS Code on Mac
+* Node.js 16.9.0
+* Nodemon
+* Express.js
+* npm 
 
 # Useful Websites
 
@@ -24,7 +22,6 @@ npm
 
 # Future Work
 
-{Make a list of things that you need to fix, improve, and add in the future.}
 * Find out how to return a key value pair from the user input on the admin add product.
 * Develop a database interface that will handle session data
 * Develop a good base for a great visual presentation of the information.

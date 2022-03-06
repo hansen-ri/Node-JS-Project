@@ -1,34 +1,31 @@
 # Node.js Project
 
-{Important!  Do not say in this section that this is college assignment.  Talk about what you are trying to accomplish as a software engineer to further your learning.}
+This project was focused on being able to learn about the basics of Javascript and it's applications within Node.js web app development. Navigating the basics is a key part of being able to get better and better with the capabilities of your specific implementation. 
 
-{Provide a description the web app that you wrote. Describe how to start a test server on your computer and what website to open up to see the first page of the app.}
-
-{Describe your purpose for writing this software.}
-
-{Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the software running (starting the server and navigating through the web pages) and a walkthrough of the code.}
 
 [Software Demo Video](http://youtube.link.goes.here)
 
 # Web Pages
 
 {Describe each of the web pages you created and how the web app transitions between each of them.  Also describe what is dynamically created on each page.}
+The main interface of the website is a rudimentary ecommerce page that allows for admin members to add products to the web page and also provides a basic shop place for admin-added products to be seen. The pages apart from the main page are dynamincally created and use Express.js to display the pages. 
 
 # Development Environment
 
-{Describe the tools that you used to develop the software}
-
-{Describe the programming language that you used and any libraries.}
+VS Code on Mac
+Node.js 16.9.0
+Nodemon
+Express.js
+npm 
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
 * [Node.js Complete Guide](https://www.udemy.com/share/1013ho3@97zucolo1P_W9fBLyE9PbkwCluqwtwma_H_o7nUKsVzVX3R9j6vDPwaaSWzRNCAK0Q==/)
-* [Web Site Name](http://url.link.goes.here)
 
 # Future Work
 
 {Make a list of things that you need to fix, improve, and add in the future.}
-* Item 1
-* Item 2
-* Item 3
+* Find out how to return a key value pair from the user input on the admin add product.
+* Develop a database interface that will handle session data
+* Develop a good base for a great visual presentation of the information.
+* Fine-tune the Error 404 page to react appropriately to the lack of accurate URL's.

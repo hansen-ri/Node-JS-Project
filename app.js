@@ -1,47 +1,39 @@
 // call the 'http' library from Node
-const http = require('http'); 
-const fs = require('fs');
-const { parse } = require('path/posix');
+// const http = require('http'); 
+// const fs = require('fs');
+// const { parse } = require('path/posix');
+const path = require('path');
+const express = require('express');
+const bodyParser = require('body-parser'); 
+const app = express();
 
-// If requested, use this function
-const server = http.createServer((req, res) => {
-    const url = req.url;
-    const method = req.method;
-    if (url === '/') {
-        res.write('<html>');
-        res.write('<head><title>Enter Message</title><head>');
-        res.write('<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">Send</button></form></body>');
-        res.write('</html>');
-        return res.end();
-    }    
-    // Display page info in terminal
-    // console.log(req.url, req.method, req.headers);
-    // process.exit();
-    if (url === "/message" && method === "POST") {
-        const body = [];
-        req.on('data', (chunk) => {
-            console.log(chunk);
-            body.push(chunk);
-        });
-        req.on('end', () => {
-            const parsedBody = Buffer.concat(body).toString();   //<Buffer 6d 65 73 73 61 67 65 3d 79 6f 75 68 6f 6f> 
-            // console.log(parsedBody);                             //message=[textFromForm]
-            const message = parsedBody.split('=')[1];               // SPlit on "=", take element on right of "="
-            fs.writeFileSync('message.txt', message);               // Save message in new file called "message.txt" 
-        });
-        
-        res.statusCode = 302;
-        res.setHeader('Location', '/');
-        return res.end(); 
-    }
-    res.setHeader('Content-Type', 'text/html');
-    res.write('<html>');
-    res.write('<head><title>My First Page</title><head>');
-    res.write('<body><h1>Hello from my Node.js Server</h1></body>');
-    res.write('</html>');
-    // tell Node that we're done writing NO MORE res.write after this!
-    res.end();
+const adminRoutes = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
+
+
+app.use(bodyParser.urlencoded({extended: false}));
+
+app.use('/admin', adminRoutes); // Only jump to admin when "/admin" is beginning of request
+app.use(shopRoutes);
+
+//404 Page Not Found
+app.use((req, res, next) => {
+    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
 });
 
+
+// app.use((req, res, next) => {
+//     console.log('In the middleware');
+//     res.send('<h1>Hello from Express!</h1>');
+// });
+
+// import routes.js file 
+// const routes = require('./routes');
+
+// If requested, use this function
+// const server = http.createServer(app);
+
 // Browser localhost: 3000 for run after running in IDE
-server.listen(4000);
+// server.listen(4000);
+// OR instead of lines 34 & 37
+app.listen(4000);
